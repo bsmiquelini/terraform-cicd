@@ -20,6 +20,22 @@ provider "azurerm" {
 
 }
 
+
+variable "rg_name" {
+  type        = string
+  description = "Nome do Resource Group"
+}
+
+variable "location" {
+  type        = string
+  description = "Local do Resource Group"
+}
+
+variable "subscription_id" {
+  type        = string
+  description = "Subscription ID"
+}
+
 variable "storageName" {
   type        = string
   default     = "bsmiquelini"
