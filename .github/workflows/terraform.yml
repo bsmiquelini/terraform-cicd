@@ -28,6 +28,8 @@ jobs:
     #    cli_config_credentials_token: ${{ secrets.TERRAFORM_CLOUD_TKN }}
     
     - name: Terraform Init
+      env:
+        TFE_TOKEN: ${{ secrets.TERRAFORM_CLOUD_TKN }}
       run: terraform init
 
     - name: Terraform Format
