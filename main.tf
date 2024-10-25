@@ -7,10 +7,10 @@ resource "azurerm_resource_group" "rg" {
 module "storage_account" {
   source = "git::https://github.com/bsmiquelini/terraform-modules.git//modules/storage_account?ref=main"
 
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = var.location
-  storage_account_name  = var.storageName
-  env                 = "Prod"
-  subscription_id     = var.subscription_id
+  resource_group_name  = azurerm_resource_group.rg.name
+  location             = var.location
+  storage_account_name = var.storageName
+  env                  = "Prod"
+  subscription_id      = var.subscription_id
 }
 
