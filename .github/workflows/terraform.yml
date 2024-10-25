@@ -48,7 +48,17 @@ jobs:
         terraform import azurerm_resource_group.rg $ARM_RG_ID
         
     - name: Terraform Plan
-      run: terraform plan
+      run: |
+        export ARM_CLIENT_ID="${{ vars.ARM_CLIENT_ID }}"
+        export ARM_CLIENT_SECRET="${{ secrets.ARM_CLIENT_SECRET }}"
+        export ARM_TENANT_ID="${{ vars.ARM_TENANT_ID }}"
+        export ARM_SUBSCRIPTION_ID="${{ vars.ARM_SUBSCRIPTION_ID }}"
+        export ARM_RG_ID="${{ vars.ARM_RG_ID }}"
+
+        export TF_VAR_subscription_id=$ARM_SUBSCRIPTION_ID
+        export TF_VAR_location="${{ vars.ARM_RG_LOCATION }}"
+        export TF_VAR_rg_name="${{ vars.ARM_RG_NAME }}"
+        terraform plan
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
