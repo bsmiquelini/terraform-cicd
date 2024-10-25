@@ -32,7 +32,7 @@ jobs:
     - name: Terraform Format
       run: terraform fmt -check
 
-    - name: Check variables
+    - name: Import Resource Group
       run: |
         export ARM_CLIENT_ID="${{ vars.ARM_CLIENT_ID }}"
         export ARM_CLIENT_SECRET="${{ secrets.ARM_CLIENT_SECRET }}"
@@ -44,6 +44,8 @@ jobs:
         echo $ARM_TENANT_ID
         echo $ARM_SUBSCRIPTION_ID
         echo $ARM_RG_ID
+        echo "[+] Import Resource Group $ARM_RG_ID"
+        terraform import azurerm_resource_group.gr $ARM_RG_ID
         
     #- name: Terraform Plan
     #  run: terraform plan
