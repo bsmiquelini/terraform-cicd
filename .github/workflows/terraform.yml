@@ -47,8 +47,8 @@ jobs:
         echo "[+] Import Resource Group $ARM_RG_ID [$TF_VAR_rg_name]"
         terraform import azurerm_resource_group.rg $ARM_RG_ID
         
-    #- name: Terraform Plan
-    #  run: terraform plan
+    - name: Terraform Plan
+      run: terraform plan
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
