@@ -9,7 +9,7 @@ module "storage_account" {
 
   resource_group_name = azurerm_resource_group.rg.name
   location            = var.location
-  name                = var.storageName
+  storage_account_name  = var.storageName
   env                 = "Prod"
   subscription_id     = var.subscription_id
 }
