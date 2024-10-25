@@ -43,6 +43,8 @@ Variables AZ Login (Microsoft Entra ID and Resource Group) [create a  app Servic
 - ARM_TENANT_ID 
 - ARM_SUBSCRIPTION_ID (Resource Group
 - ARM_RG_ID (Resource Group ID)
+- ARM_RG_NAME (Resource Group Name to Import)
+- ARM_RG_LOCATION (Resource Group Location)
 
 ### Import Resource Group in Terraform
 ```
@@ -50,3 +52,7 @@ terraform import azurerm_resource_group.rg <Resource ID>
 ```
 
 ### Run Workflow validate and Plan 
+- Others Branches (PR)
+
+### Run Workflow validate, Plan and Apply
+- main branch
