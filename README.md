@@ -1,11 +1,14 @@
 # Terraform login no Azure
-
+## Local
 ```BASH
 # Shell
 export ARM_CLIENT_ID="00000000-0000-0000-0000-000000000000"
 export ARM_CLIENT_SECRET="12345678-0000-0000-0000-000000000000"
 export ARM_TENANT_ID="10000000-0000-0000-0000-000000000000"
 export ARM_SUBSCRIPTION_ID="20000000-0000-0000-0000-000000000000"
+
+# Resource Group ID
+export ARM_RG_ID="/subscriptions/2213e8b1-dbc7-4d54-8aff-b5e315df5e5b/resourceGroups/811-a208b01a-provide-continuous-delivery-with-gith"
 ```
 
 ```PWSH
@@ -32,3 +35,18 @@ provider "azurerm" {
   subscription_id = "20000000-0000-0000-0000-000000000000"
 }
 ```
+
+## Workflow
+Variables AZ Login (Microsoft Entra ID and Resource Group) [create a  app Service Principal to get client, secret and tanant id and subscription get in resource group]
+- ARM_CLIENT_ID (Application ID)
+- ARM_CLIENT_SECRET (Secret)
+- ARM_TENANT_ID 
+- ARM_SUBSCRIPTION_ID (Resource Group
+- ARM_RG_ID (Resource Group ID)
+
+### Import Resource Group in Terraform
+```
+terraform import azurerm_resource_group.rg <Resource ID>
+```
+
+### Run Workflow validate and Plan 
