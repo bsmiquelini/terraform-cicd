@@ -14,7 +14,7 @@ terraform {
 }
 
 provider "azurerm" {
-  subscription_id                 = "80ea84e8-afce-4851-928a-9e2219724c69"
+  subscription_id                 = var.subscription_id
   resource_provider_registrations = "none"
   features {}
 
@@ -33,8 +33,8 @@ variable "storageTier" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "811-0a40075a-provide-continuous-delivery-with-gith"
-  location = "South Central US"
+  name     = var.rg_name
+  location = var.location
 }
 
 resource "azurerm_storage_account" "storage" {
