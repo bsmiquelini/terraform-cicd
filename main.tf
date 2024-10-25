@@ -11,5 +11,6 @@ module "storage_account" {
   location            = var.location
   name                = var.storageName
   env                 = "Prod"
+  subscription_id     = var.subscription_id
 }
 
