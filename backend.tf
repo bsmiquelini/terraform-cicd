@@ -1,8 +1,9 @@
-#terraform {
-#  backend "azurerm" {
-#    resource_group_name  = "terraform-state-rg"
-#    storage_account_name = "terraformstate"
-#    container_name       = "tfstate"
-#    key                  = "terraform.tfstate"
-#  }
-#}
+terraform {
+  backend "remote" {
+    organization = "bmcent"
+
+    workspaces {
+      name = "TerraformCI"
+    }
+  }
+}
