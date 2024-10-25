@@ -1,10 +1,10 @@
 terraform {
-  cloud {
-    organization = "bmcent"
-    workspaces {
-      name = "TerraformCI"
-    }
-  }
+  #cloud {
+  #  organization = "bmcent"
+  #  workspaces {
+  #    name = "TerraformCI"
+  #  }
+  #}
   required_providers {
     azurerm = {
       version = "4.7.0"
